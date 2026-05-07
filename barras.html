@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barras TRUBAR</title>
+
+<style>
+
+
+
+body{
+background:#ee62a1;
+font-family:Arial;
+margin:0;
+}
+
+
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+background:#3f022b;
+}
+
+.logo img{
+height:130px;
+}
+
+
+
+nav a{
+margin-left:30px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+font-size:16px;
+}
+
+nav a:hover{
+color:#ff4fa0;
+}
+
+
+.cart-btn{
+background:#ff4fa0;
+border:none;
+padding:10px 15px;
+color:white;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+
+
+.titulo{
+text-align:center;
+padding:60px 20px 20px 20px;
+color:white;
+}
+
+.titulo h1{
+font-size:45px;
+}
+
+
+.product-grid{
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  padding:60px 120px;
+}
+
+
+.card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  padding:25px;
+  border-radius:15px;
+  color:white;
+  box-shadow:0px 8px 15px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+  width:150px;
+  border-radius:10px;
+}
+
+.card h3{
+  color:white;
+  font-size:22px;
+}
+.card a{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  text-decoration:none;
+  width:100%;
+  color:white;
+}
+
+.card1{
+  background: linear-gradient(90deg, #ff4fa0, #e4dede, #3f022b);
+}
+
+.card2{
+  background: linear-gradient(90deg, #a82462, #d9d9d9, #74044e);
+}
+
+.card3{
+  background: linear-gradient(90deg, #8f134d, #d9d9d9, #a01873);
+}
+
+.card4{
+  background: linear-gradient(90deg, #58042b, #d9d9d9, #b41a62);
+}
+
+.card5{
+  background: linear-gradient(90deg, #8f134d, #d9d9d9, #d83581);
+}
+
+.card6{
+  background: linear-gradient(90deg, #3f022b, #d9d9d9, #ff4fa0);
+}
+.info{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  
+   
+}
+
+.botones{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:10px;
+}
+
+.add-btn{
+margin-top:20px;
+padding:25px 40px;
+background:#ff4fa0;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+
+.btn-info{
+  background:black;
+  color:#ff4fa0;
+  text-decoration:none;
+  font-weight:bold;
+}
+.add-btn,
+.btn-info{
+  padding:15px 30px; 
+  font-size:16px;
+  border-radius:10px;
+}
+.cart-btn{
+background:#ff4fa0;
+border:none;
+padding:20px 25px;
+color:white;
+font-size:18px;
+border-radius:15px;
+cursor:pointer;
+}
+
+.btn-carrito:hover{
+  background:#333;
+}
+
+
+
+.btn-info:hover{
+  background:#ffe3f1;
+}
+footer{
+text-align:center;
+padding:30px;
+background:#000000;
+color:white;
+margin-top:40px;
+}
+
+
+
+.cart{
+position:fixed;
+top:0;
+right:-400px;
+width:350px;
+height:100%;
+background:white;
+box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+transition:0.3s;
+display:flex;
+flex-direction:column;
+z-index:1000;
+}
+
+.cart.active{
+right:0;
+}
+
+.cart-header{
+display:flex;
+justify-content:space-between;
+padding:20px;
+border-bottom:1px solid #ddd;
+font-weight:bold;
+}
+
+.cart-header span{
+cursor:pointer;
+}
+
+.free{
+padding:10px 20px;
+font-size:14px;
+color:#333;
+}
+
+.cart-item{
+display:flex;
+gap:15px;
+padding:20px;
+border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+width:70px;
+}
+
+.qty{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:10px;
+}
+
+.qty button{
+padding:5px 10px;
+border:none;
+background:#eee;
+cursor:pointer;
+}
+
+.cart-footer{
+margin-top:auto;
+padding:20px;
+}
+
+.checkout{
+width:100%;
+padding:15px;
+background:black;
+color:white;
+border:none;
+border-radius:25px;
+font-size:16px;
+cursor:pointer;
+}
+.redes-footer{
+margin-top:15px;
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.redes-footer img{
+width:35px;
+height:35px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.redes-footer img:hover{
+transform:scale(1.2);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<a href="index.html">
+<img src="logo.png">
+</a>
+</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="barras.html">Productos</a>
+<a href="index.html#nosotros">Sobre Nosotros</a>
+<a href="carrito.html">Carrito</a>
+</nav>
+
+</header>
+
+
+<section class="titulo">
+<h1>Barras TRUBAR</h1>
+</section>
+
+<div class="product-grid">
+
+<div class="card card1">
+
+  <img src="paquete1.jpeg">
+
+  <h3 class="titulo-card">Paquete Variado</h3>
+
+  <div class="info">
+    <div class="botones">
+      <button class="add-btn" onclick="addToCart('Paquete Variado (3 barras)', 1400, 'imagenes/paquete1.jpeg')">
+Agregar al carrito
+</button>
+      <a href="paquetedebarras.html" class="btn-info">Saber más</a>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="card card2">
+
+  <img src="brownie-removebg.png">
+
+  <h3 class="titulo-card">Chocolate Brownie</h3>
+
+  <div class="info">
+    <div class="botones">
+      <button class="add-btn" onclick="addToCart('Barra Chocolate Brownie', 40, 'imagenes/brownie-removebg.png')">
+Añadir al carrito
+</button>
+      <a href="barra brownie.html" class="btn-info">Saber más</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="card card3">
+  <img src="coco.jpeg">
+  <h3 class="titulo-card">Coco</h3>
+
+  <div class="info">
+    <div class="botones">
+     <button class="add-btn" onclick="addToCart('Barra Cacao', 40, 'imagenes/coco.jpeg')">
+Añadir al carrito
+</button>
+      <a href="barra-coco.html" class="btn-info">Saber más</a>
+    </div>
+  </div>
+</div>
+<div class="card card4">
+  <img src="galleta-remove.png">
+  <h3 class="titulo-card">Galleta</h3>
+
+  <div class="info">
+    <div class="botones">
+    <button class="add-btn" onclick="addToCart('Barra Galleta', 40, 'imagenes/galleta-remove.png')">
+Añadir al carrito
+</button>
+      <a href="barra-galleta.html" class="btn-info">Saber más</a>
+    </div>
+  </div>
+</div>
+
+<div class="card card5">
+  <img src="barra5.png">
+  <h3 class="titulo-card">Mantequilla de Maní</h3>
+
+  <div class="info">
+    <div class="botones">
+   <button class="add-btn" onclick="addToCart('Barra Mantequilla de Mani', 40, 'imagenes/barra5.png')">
+Añadir al carrito
+</button>
+      <a href="barra-mantequilla.html" class="btn-info">Saber más</a>
+    </div>
+  </div>
+</div>
+
+<div class="card card6">
+  <img src="macchiato.png">
+  <h3 class="titulo-card">Macchiato</h3>
+
+  <div class="info">
+    <div class="botones">
+      <button class="add-btn" onclick="addToCart('Chocolate Brownie', 40, 'imagenes/brownie-removebg.png')">
+Añadir al carrito
+</button>
+      <a href="barra-macchiato.html" class="btn-info">Saber más</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<footer>
+<p>© 2026 TRUBAR</p>
+<div class="redes-footer">
+
+    <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMTgqglQqzRPBdWGCttLhrZfpgVwfKqZfwBLRmfFckZskHlXVpbfBgthkRgmQBGmXNfFrhQ" target="_blank">
+    <img src="imagenes/gmail.png" alt="Gmail">
+    </a>
+    
+    <a href="https://www.instagram.com/trubar.snakco?igsh=ZnRoYzdtc29weDZk" target="_blank">
+    <img src="imagenes/insta-remove.png" alt="Instagram">
+    </a>
+    
+    </div>
+</footer>
+
+</script>
+
+</body>
+</html>
+<script>
+function addToCart(nombre, precio, imagen){
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+
+let existe = carrito.find(item => item.nombre === nombre);
+
+if(existe){
+existe.cantidad += 1;
+}else{
+carrito.push({
+nombre: nombre,
+precio: precio,
+imagen: imagen,
+cantidad: 1
+});
+}
+
+localStorage.setItem("carrito", JSON.stringify(carrito));
+
+}
+</script>

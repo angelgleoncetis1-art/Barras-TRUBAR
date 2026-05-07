@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paquete Variado TRUBAR</title>
+
+<style>
+ 
+
+body{
+background:#ee62a1;
+font-family:Arial;
+margin:0;
+}
+
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+background:#3f022b;
+}
+
+.logo img{
+height:130px;
+}
+
+nav a{
+margin-left:30px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+font-size:16px;
+}
+
+nav a:hover{
+color:#ff4fa0;
+}
+.btn-container{
+display:flex;
+justify-content:center;
+margin-top:30px;
+}
+.add-cart{
+padding:15px 40px;
+background: linear-gradient(135deg, #ff4fa0, #ff2f90);
+color:white;
+border:none;
+border-radius:30px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition: all 0.3s ease;
+}
+
+.add-cart:hover{
+transform: scale(1.05);
+background: linear-gradient(135deg, #ff2f90, #ff1f80);
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+.add-cart:active{
+transform: scale(0.95);
+}
+.full-btn{
+grid-column: 1 / 4; 
+display:flex;
+justify-content:center;
+margin-top:20px;
+}
+
+
+.titulo{
+text-align:center;
+padding:60px 20px 20px 20px;
+color:white;
+}
+
+.titulo h1{
+font-size:45px;
+}
+
+
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
+padding:60px 120px;
+}
+
+
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0px 8px 15px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+.card h3{
+margin-top:15px;
+color:#333;
+}
+
+.card a{
+text-decoration:none;
+color:black;
+}
+
+
+
+footer{
+text-align:center;
+padding:30px;
+background:#000000;
+color:white;
+margin-top:40px;
+}
+
+
+
+.cart{
+position:fixed;
+top:0;
+right:-400px;
+width:350px;
+height:100%;
+background:white;
+box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+transition:0.3s;
+display:flex;
+flex-direction:column;
+z-index:1000;
+}
+
+.cart.active{
+right:0;
+}
+
+.cart-header{
+display:flex;
+justify-content:space-between;
+padding:20px;
+border-bottom:1px solid #ddd;
+font-weight:bold;
+}
+
+.cart-header span{
+cursor:pointer;
+}
+
+.free{
+padding:10px 20px;
+font-size:14px;
+color:#333;
+}
+
+.cart-item{
+display:flex;
+gap:15px;
+padding:20px;
+border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+width:70px;
+}
+
+.qty{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:10px;
+}
+
+.qty button{
+padding:5px 10px;
+border:none;
+background:#eee;
+cursor:pointer;
+}
+
+.cart-footer{
+margin-top:auto;
+padding:20px;
+}
+
+.checkout{
+width:100%;
+padding:15px;
+background:black;
+color:white;
+border:none;
+border-radius:25px;
+font-size:16px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<a href="index.html">
+<img src="logo.png">
+</a>
+</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="barras.html">Productos</a>
+<a href="index.html#nosotros">Sobre Nosotros</a>
+<a href="carrito.html">Carrito</a>
+
+</nav>
+
+</header>
+
+
+<section class="titulo">
+
+<h1>Paquete Variado TRUBAR</h1>
+<p>Incluye 3 de nuestras barras más populares</p>
+
+</section>
+
+
+<div class="product-grid">
+
+<div class="card">
+<a href="barra brownie.html">
+<img src="brownie-removebg.png">
+<h3>Chocolate Brownie</h3>
+</a>
+</div>
+
+<div class="card">
+<a href="barra-macchiato.html">
+<img src="macchiato.png">
+<h3>Macchiato</h3>
+</a>
+</div>
+
+<div class="card">
+<a href="barra-galleta.html">
+<img src="galleta-remove.png">
+<h3>Galleta</h3>
+</a>
+</div>
+<div class="full-btn">
+
+</div>
+
+</div>
+
+<footer>
+
+<p>© 2026 TRUBAR</p>
+
+</footer>
+
+
+
+</body>
+</html>

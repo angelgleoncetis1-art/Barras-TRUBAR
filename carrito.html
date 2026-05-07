@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito TRUBAR</title>
+
+<style>
+
+
+body{
+background:#ee62a1;
+font-family:Arial;
+margin:0;
+}
+
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+background:#3f022b;
+}
+
+.logo img{
+height:80px;
+}
+
+nav a{
+margin-left:30px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+
+.titulo{
+text-align:center;
+color:white;
+padding:40px;
+}
+
+
+.cart-container{
+background:white;
+max-width:900px;
+margin:20px auto;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.cart-item{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:20px;
+border-bottom:1px solid #ddd;
+padding-bottom:15px;
+}
+
+.cart-item img{
+width:80px;
+}
+
+.cart-info{
+flex:1;
+margin-left:20px;
+}
+
+.qty button{
+padding:5px 10px;
+background:#ff4fa0;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.total{
+text-align:right;
+font-size:20px;
+margin-top:20px;
+font-weight:bold;
+}
+
+.checkout{
+width:100%;
+padding:15px;
+background:#ff4fa0;
+color:white;
+border:none;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+margin-top:20px;
+}
+
+
+footer{
+text-align:center;
+padding:20px;
+background:black;
+color:white;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<a href="index.html">
+<img src="logo.png">
+</a>
+</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="barras.html">Productos</a>
+<a href="index.html#nosotros">Sobre Nosotros</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+</header>
+
+<section class="titulo">
+<h1>🛒 Tu Carrito</h1>
+</section>
+
+<div class="cart-container" id="cart-items">
+<!-- Aquí se cargan los productos -->
+</div>
+
+<div class="cart-container">
+<div class="total" id="total">Total: $0</div>
+<button class="checkout">Finalizar Compra</button>
+</div>
+
+<footer>
+<p>© 2026 TRUBAR</p>
+</footer>
+
+<script>
+
+function renderCart(){
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let container = document.getElementById("cart-items");
+
+container.innerHTML = "";
+
+let total = 0;
+
+carrito.forEach((item, index) => {
+
+total += item.precio * item.cantidad;
+
+container.innerHTML += `
+<div class="cart-item">
+
+<img src="${item.imagen}">
+
+<div class="cart-info">
+<h3>${item.nombre}</h3>
+<p>$${item.precio}</p>
+
+<div class="qty">
+<button onclick="changeQty(${index}, -1)">-</button>
+<span>${item.cantidad}</span>
+<button onclick="changeQty(${index}, 1)">+</button>
+</div>
+
+</div>
+
+<button onclick="removeItem(${index})">❌</button>
+
+</div>
+`;
+});
+
+document.getElementById("total").innerText = "Total: $" + total;
+}
+
+/* CAMBIAR CANTIDAD */
+function changeQty(index, value){
+
+let carrito = JSON.parse(localStorage.getItem("carrito"));
+
+carrito[index].cantidad += value;
+
+if(carrito[index].cantidad < 1){
+carrito[index].cantidad = 1;
+}
+
+localStorage.setItem("carrito", JSON.stringify(carrito));
+
+renderCart();
+}
+
+/* ELIMINAR PRODUCTO */
+function removeItem(index){
+
+let carrito = JSON.parse(localStorage.getItem("carrito"));
+
+carrito.splice(index,1);
+
+localStorage.setItem("carrito", JSON.stringify(carrito));
+
+renderCart();
+}
+
+/* CARGAR AL INICIO */
+window.onload = renderCart;
+
+</script>
+
+</body>
+</html>
